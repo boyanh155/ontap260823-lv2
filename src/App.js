@@ -1,23 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
-
+import "./App.css";
+import Form from "./components/Form";
+import List from "./components/List";
+import Title from "./components/Title";
+import { Card } from "reactstrap";
+// Bootstrap css
+import "bootstrap/dist/css/bootstrap.min.css";
+import { useEffect, useState } from "react";
+import NavigateBar from "./components/NavigateBar";
+import { Route, Routes } from "react-router-dom";
+import TodoList from "./pages/TodoList";
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div
+      style={{
+        width: "100%",
+        display: "flex",
+        justifyContent: "center",
+        flexDirection: "column",
+        alignItems: "center",
+      }}
+    >
+      <NavigateBar />
+      <Routes>
+        <Route path="todolist" element={<TodoList />} />
+      </Routes>
     </div>
   );
 }
