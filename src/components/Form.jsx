@@ -9,7 +9,9 @@ const Form = ({ setData, data }) => {
       text: value,
       id: data.length + 1,
       active: false,
+      state:['Uncompleted',"Completed"][(Math.floor(Math.random()*2))]
     };
+    console.log(newTodo)
     const currentData = [...data, newTodo];
     //
     setData((prev) => {

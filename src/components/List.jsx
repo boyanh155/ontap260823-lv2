@@ -12,6 +12,7 @@ const List = ({ data, setData }) => {
             key={item.id}
             text={item.text}
             id={item.id}
+            state={item.state}
             active={item.active}
           />
         );

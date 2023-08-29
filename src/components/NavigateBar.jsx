@@ -28,21 +28,21 @@ const NavigateBar = () => {
             marginRight: "20px",
           }}
         >
-          <Link to="/dashboard/">Components</Link>
+          <Link to="/completed/">Completed</Link>
         </NavItem>
         <NavItem
           style={{
             marginRight: "20px",
           }}
         >
-          <Link to="/cart/">Components</Link>
+          <Link to="/uncompleted/">Uncompleted</Link>
         </NavItem>
         <NavItem
           style={{
             marginRight: "20px",
           }}
         >
-          <Link to="/todolist/">Components</Link>
+          <Link to="/todolist/">Full</Link>
         </NavItem>
       </Nav>
       <NavbarText>Simple Text</NavbarText>

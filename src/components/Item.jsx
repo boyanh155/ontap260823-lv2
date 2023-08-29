@@ -1,12 +1,12 @@
 import React from "react";
-import { Button, ListGroupItem } from "reactstrap";
+import { Button, Input, ListGroupItem } from "reactstrap";
 
-const Item = ({ text, id, active, data, setData }) => {
+const Item = ({ text, id, active, data, setData, state }) => {
   const handleRemoveItem = () => {
     const currentData = data;
     const newData = currentData.filter((item) => item.id !== id);
     setData(newData);
-
+    
     // setData()
   };
   const activeItem = () => {
@@ -24,6 +24,23 @@ const Item = ({ text, id, active, data, setData }) => {
         };
       }
     });
+    setData(newData);
+  };
+  const toggleCheckItem = (e) => {
+    const currentData = data;
+    const newData = currentData.map((item) => {
+      if (item.id === id) {
+        return {
+          ...item,
+          state:item.state ==='Completed' ? 'Uncompleted': 'Completed'
+        };
+      } else {
+        return {
+          ...item,
+        
+        };
+      }
+    });
     setData(newData)
   };
   return (
@@ -31,6 +48,7 @@ const Item = ({ text, id, active, data, setData }) => {
       style={{
         display: "flex",
         justifyContent: "space-between",
+        textDecoration: state === "Completed" ? "line-through" : "",
       }}
       active={active}
     >
@@ -45,6 +63,15 @@ const Item = ({ text, id, active, data, setData }) => {
         >
           Active
         </Button>
+        <Input
+          style={{
+            marginRight: "4px",
+          }}
+          type="checkbox"
+          checked={state === "Completed"}
+          onChange={toggleCheckItem}
+        />
+
         <Button color="danger" onClick={handleRemoveItem}>
           DELETE
         </Button>

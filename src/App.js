@@ -9,7 +9,12 @@ import { useEffect, useState } from "react";
 import NavigateBar from "./components/NavigateBar";
 import { Route, Routes } from "react-router-dom";
 import TodoList from "./pages/TodoList";
+import Uncompleted from "./pages/Uncompleted";
+import Completed from "./pages/Completed";
 function App() {
+  const setLocalStorage = (data) => {
+    localStorage.setItem("todolist", JSON.stringify(data));
+  };
   return (
     <div
       style={{
@@ -22,7 +27,17 @@ function App() {
     >
       <NavigateBar />
       <Routes>
-        <Route path="todolist" element={<TodoList />} />
+        <Route path="todolist"
+        setLocalStorage={setLocalStorage}
+        element={<TodoList />} />
+        <Route
+          path="uncompleted"
+          setLocalStorage={setLocalStorage}
+          element={<Uncompleted />}
+        />
+        <Route 
+        setLocalStorage={setLocalStorage}
+        path="completed" element={<Completed />} />
       </Routes>
     </div>
   );

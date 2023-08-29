@@ -6,19 +6,18 @@ import { Card } from "reactstrap";
 
 const TodoList = () => {
   const [data, setData] = useState([]);
+
+
   useEffect(() => {
-    //
-    data.map((item) => {
-      if (item.active) {
-        document.title = item.text;
-      }
-    });
-    // Save local storage
-  }, [data]);
-  const previousData = JSON.parse(localStorage.getItem("todolist"));
-  useEffect(() => {
+    const previousData = JSON.parse(localStorage.getItem("todolist"));
+    if (!previousData) {
+      localStorage.setItem("todolist", "[]");
+      setData([]);
+      return;
+    }
     setData(previousData);
-  }, [previousData]);
+  }, []);
+
   return (
     <Card
       style={{
