@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { Button, Input, ListGroupItem } from "reactstrap";
 
 const Item = ({ text, id, active, data, setData, state }) => {
@@ -52,7 +53,9 @@ const Item = ({ text, id, active, data, setData, state }) => {
       }}
       active={active}
     >
+      <Link to={`/todo/${text}`} state={id}>
       <div>{`${id}.${text}`}</div>
+      </Link>
       <div>
         <Button
           style={{

@@ -10,6 +10,7 @@ const TodoList = () => {
 
   useEffect(() => {
     const previousData = JSON.parse(localStorage.getItem("todolist"));
+    console.log(previousData)
     if (!previousData) {
       localStorage.setItem("todolist", "[]");
       setData([]);

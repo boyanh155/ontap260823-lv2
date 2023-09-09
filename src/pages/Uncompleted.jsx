@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import List from '../components/List'
 
-const Uncompleted = () => {
-    let list = localStorage.getItem('todolist') 
+const Uncompleted = ({localStorage}) => {
+    let list = localStorage.getItem('todolist')  || '[]'
     if(list){
         list = JSON.parse(list)
     }

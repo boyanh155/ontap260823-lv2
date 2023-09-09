@@ -11,6 +11,8 @@ import { Route, Routes } from "react-router-dom";
 import TodoList from "./pages/TodoList";
 import Uncompleted from "./pages/Uncompleted";
 import Completed from "./pages/Completed";
+import Register from "./pages/Register";
+import TodoDetails from "./pages/TodoDetails";
 function App() {
   const setLocalStorage = (data) => {
     localStorage.setItem("todolist", JSON.stringify(data));
@@ -38,6 +40,8 @@ function App() {
         <Route 
         setLocalStorage={setLocalStorage}
         path="completed" element={<Completed />} />
+        <Route path="/register" element={<Register/>}/>
+        <Route path="/todo/:todoID" element={<TodoDetails/>}/>
       </Routes>
     </div>
   );
